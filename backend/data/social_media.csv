@@ -1,0 +1,7 @@
+post_id,platform,content,sentiment_score,engagement_count,country,city,date
+P1,Facebook,Loved the message today!,0.8,120,Nigeria,Lagos,2024-10-21
+P2,Instagram,"Amazing service, so inspiring!",0.9,85,Nigeria,Abuja,2024-10-20
+P3,Twitter,Could use some improvements.,-0.3,45,Nigeria,Port Harcourt,2024-10-19
+P4,Facebook,Engaging and interactive session!,0.7,150,Nigeria,Ikeja,2024-10-18
+P5,Instagram,I didn’t enjoy the experience.,-0.6,30,Ghana,Accra,2024-10-18
+P6,Twitter,Great event! Looking forward to more!,0.85,75,Nigeria,Ibadan,2024-10-17

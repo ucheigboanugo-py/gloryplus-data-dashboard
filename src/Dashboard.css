@@ -1,0 +1,36 @@
+.dashboard {
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    color: #333;
+}
+
+.widgets {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.widget {
+    background: #f0f0f0;
+    padding: 15px;
+    border-radius: 8px;
+    font-size: 1.1em;
+    font-weight: bold;
+    text-align: center;
+    width: 14%;
+}
+
+.map-container {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.charts {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.chart {
+    width: 45%;
+}

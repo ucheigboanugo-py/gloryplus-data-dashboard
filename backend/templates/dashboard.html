@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GloryPlus Dashboard</title>
+    
+    <!-- Link to CSS in the static folder -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    
+    <!-- Link to JavaScript files in the static folder -->
+    <script src="{{ url_for('static', filename='dashboard.js') }}" defer></script>
+    <script src="{{ url_for('static', filename='scripts.js') }}" defer></script>
+</head>
+<body>
+    <header>
+        <h1>GloryPlus Dashboard</h1>
+    </header>
+    
+    <!-- Dashboard Overview Widgets -->
+    <section id="overview-widgets">
+        <div class="widget">Branches: <span id="num-branches">7</span></div>
+        <div class="widget">First Timers: <span id="num-first-timers">77</span></div>
+        <div class="widget">Second Timers: <span id="num-second-timers">35</span></div>
+        <div class="widget">Cells: <span id="num-cells">102</span></div>
+        <div class="widget">Members: <span id="num-members">1,100</span></div>
+        <div class="widget">Sunday Service Attendees: <span id="num-attendees">845</span></div>
+    </section>
+
+    <!-- Location Analysis -->
+    <section id="location-analysis">
+        <h2>Location Analysis</h2>
+        <div id="branches-map"></div> <!-- Map for branch locations -->
+    </section>
+
+    <!-- Feedback and Follow-up Visualizations -->
+    <section id="feedback-followup">
+        <h2>Feedback and Follow-up</h2>
+        <div id="feedbackSentimentChart"></div>  <!-- Feedback sentiment chart -->
+        <div id="followup-chart"></div>   <!-- Follow-up tracking chart -->
+    </section>
+
+    <!-- Social Media Visualization -->
+    <section id="social-media">
+        <h2>Social Media Engagement</h2>
+        <div id="social-media-widgets">
+            <div class="widget">Engaged Followers: <span id="num-followers">0</span></div>
+            <div class="widget">Top Location: <span id="top-location">N/A</span></div>
+        </div>
+        <div id="socialMediaSentimentChart"></div> <!-- Chart for engagement metrics -->
+    </section>
+
+</body>
+</html>

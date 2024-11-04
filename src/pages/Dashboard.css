@@ -1,0 +1,149 @@
+/* General styles */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif; /* Clean, light font */
+}
+
+body {
+    background-color: #f8f9fb;
+    color: #333;
+}
+
+/* Sidebar */
+.sidebar {
+    position: fixed;
+    width: 220px;
+    height: 100vh;
+    background-color: #1f1d2b;
+    color: #ffffff;
+    padding-top: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.sidebar h2 {
+    color: #ffffff;
+    font-size: 1.5rem;
+    text-align: center;
+    margin-bottom: 1.5rem;
+    font-weight: 500;
+}
+
+.sidebar .menu {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar .menu-item {
+    padding: 15px 20px;
+    color: #b0afc2;
+    font-size: 1rem;
+    font-weight: 400;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    transition: all 0.3s;
+}
+
+.sidebar .menu-item.active,
+.sidebar .menu-item:hover {
+    background-color: #312e46;
+    color: #ffffff;
+}
+
+.sidebar .menu-item svg {
+    margin-right: 10px;
+    font-size: 1.2rem;
+}
+
+/* Dashboard Layout */
+.dashboard {
+    margin-left: 240px;
+    padding: 20px;
+}
+
+.dashboard-header {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+}
+
+/* KPI Widgets Row */
+.kpi-widgets {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.kpi-widget {
+    flex: 1;
+    background-color: #ffffff;
+    border-radius: 10px;
+    padding: 15px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    color: #333;
+}
+
+.kpi-widget h3 {
+    font-size: 1rem;
+    color: #888;
+    margin-bottom: 5px;
+}
+
+.kpi-widget p {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #4b9cdb;
+    margin: 0;
+}
+
+/* Chart Section */
+.chart-section {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.chart-card {
+    background-color: #ffffff;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Spacing between letters in widgets */
+.kpi-widget, .kpi-widget h3, .kpi-widget p {
+    letter-spacing: 0.5px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .sidebar {
+        width: 100%;
+        height: auto;
+        position: relative;
+    }
+
+    .dashboard {
+        margin-left: 0;
+        padding: 10px;
+    }
+
+    .kpi-widgets {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .chart-section {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+
+
+
+
