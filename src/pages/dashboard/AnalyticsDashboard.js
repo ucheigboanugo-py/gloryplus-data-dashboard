@@ -17,38 +17,65 @@ const Dashboard = () => {
 
     const fetchAttendanceData = async () => {
         // Placeholder - replace with actual API call
-        setAttendanceData([/* sample data */]);
+        setAttendanceData([{ date: '2024-10-10', count: 50 }]);
     };
 
     const fetchVisitorData = async () => {
-        setVisitorData([/* sample data */]);
+        setVisitorData([{ name: 'John Doe', visitDate: '2024-10-11' }]);
     };
 
     const fetchFollowUpData = async () => {
-        setFollowUpData([/* sample data */]);
+        setFollowUpData([{ followUpDate: '2024-10-12', notes: 'Called for follow-up' }]);
     };
 
     const fetchEventData = async () => {
-        setEventData([/* sample data */]);
+        setEventData([{ eventName: 'Community Meetup', date: '2024-10-15' }]);
     };
 
     return (
         <Container>
             <Section>
                 <h2>Attendance</h2>
-                {/* Map over attendanceData to display */}
+                {attendanceData.length > 0 ? (
+                    attendanceData.map((item, index) => (
+                        <p key={index}>Date: {item.date}, Count: {item.count}</p>
+                    ))
+                ) : (
+                    <p>No attendance data available</p>
+                )}
             </Section>
+
             <Section>
                 <h2>New Visitors</h2>
-                {/* Map over visitorData to display */}
+                {visitorData.length > 0 ? (
+                    visitorData.map((visitor, index) => (
+                        <p key={index}>Name: {visitor.name}, Visit Date: {visitor.visitDate}</p>
+                    ))
+                ) : (
+                    <p>No visitor data available</p>
+                )}
             </Section>
+
             <Section>
                 <h2>Follow-Ups</h2>
-                {/* Map over followUpData to display */}
+                {followUpData.length > 0 ? (
+                    followUpData.map((followUp, index) => (
+                        <p key={index}>Date: {followUp.followUpDate}, Notes: {followUp.notes}</p>
+                    ))
+                ) : (
+                    <p>No follow-up data available</p>
+                )}
             </Section>
+
             <Section>
                 <h2>Upcoming Events</h2>
-                {/* Map over eventData to display */}
+                {eventData.length > 0 ? (
+                    eventData.map((event, index) => (
+                        <p key={index}>Event: {event.eventName}, Date: {event.date}</p>
+                    ))
+                ) : (
+                    <p>No event data available</p>
+                )}
             </Section>
         </Container>
     );
@@ -69,8 +96,14 @@ const Section = styled.div`
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    
     h2 {
         font-size: 1.2em;
         color: #333;
+    }
+    
+    p {
+        margin: 5px 0;
+        color: #666;
     }
 `;

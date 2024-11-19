@@ -1,30 +1,63 @@
-// src/api/dataService.js
+// Enhanced fetchData with robust error handling
+const fetchData = async (endpoint, options = {}) => {
+    const baseUrl = "http://localhost:3000";
+    const url = endpoint ? `${baseUrl}${endpoint}` : baseUrl;
 
-// Define fetchData function
-const fetchData = async (endpoint) => {
-    const url = `http://localhost:3000${endpoint}`; // Ensure backend port matches here
+    // Default headers
+    const defaultHeaders = {
+        "Content-Type": "application/json",
+    };
+
+    const config = {
+        method: "GET",
+        headers: {
+            ...defaultHeaders,
+            ...(options.headers || {}), // Merge custom headers
+        },
+        ...options, // Allow method, body, etc.
+    };
 
     try {
-        const response = await fetch(url);
+        console.log(`Fetching data from ${url}...`);
+        const response = await fetch(url, config);
+
+        // Check for HTTP errors
         if (!response.ok) {
-            throw new Error(`Error: ${response.status} - ${response.statusText}`);
+            const errorDetails = await response.text(); // Try to fetch additional error info
+            throw new Error(
+                `HTTP Error! Status: ${response.status} (${response.statusText}). Response: ${errorDetails}`
+            );
         }
+
         const data = await response.json();
-        console.log(`Fetched data from ${endpoint}:`, data); // Log data for verification
+        console.log(`Fetched data successfully from ${endpoint || "/"}`, data);
         return data;
     } catch (error) {
-        console.error(`Error fetching data from ${endpoint}:`, error);
-        throw error;
+        // Handle network or other unexpected errors
+        console.error(
+            `Error fetching data from ${url}: ${error.message}. Request config:`,
+            config
+        );
+        throw new Error(
+            `Failed to fetch data from ${endpoint || "/"}: ${error.message}`
+        );
     }
 };
 
-// Define formatBranchGrowthData function
-const formatBranchGrowthData = (data) => {
-    // Replace with your actual formatting logic
-    return data.map(item => ({
-        name: item.branchName,
-        value: item.growthPercentage,
+// Formatter for branch growth data with error resilience
+const formatBranchGrowthData = (data = []) => {
+    if (!Array.isArray(data)) {
+        console.warn("Invalid data format: Expected an array", data);
+        return [];
+    }
+
+    return data.map((item, index) => ({
+        name: item?.branchName || `Branch ${index + 1}`,
+        value: item?.growthPercentage || 0,
     }));
 };
 
+// Export for reuse
 export { fetchData, formatBranchGrowthData };
+
+
